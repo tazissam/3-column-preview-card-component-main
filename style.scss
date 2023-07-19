@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --very-light-gray: hsl(0, 0%, 95%);
+
+    --mheight: 12rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    min-height: 100lvh;
+    display: flex;
+    align-items: center;
+    background: var(--very-light-gray);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+svg {
+    width: 100%;
+    display: block;
+}
+
+h1 {
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: auto;
+    .row {
+        padding: 2.5rem 3rem;
+        color: var(--transparent-white);
+        .title {
+            color: var(--very-light-gray);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--transparent-white);
+            height: calc(var(--mheight) + 30px );
+
+        }
+
+        *:not(:first-child) {
+            margin-top: 1.8rem;
+
+        }
+
+        .btn {
+            display: inline-block;
+            border-radius: 1.5rem;
+            background: var(--very-light-gray);
+            padding: 0 2.5rem;
+            border: 2px solid var(--transparent-white);
+            &:is(:hover,:focus) {
+                color: var(--transparent-white) !important;
+                background-color: transparent;
+            }
+            line-height: 3rem;
+            mix-blend-mode: lighten;
+            color: #000;
+        }
+
+        background: var(--background);
+
+        &:nth-child(1) {
+            --background: var(--bright-orange);
+        }
+
+        &:nth-child(2) {
+            --background: var(--dark-cyan);
+        }
+
+        &:nth-child(3) {
+            --background: var(--very-dark-cyan);
+
+        }
+    }
+}
+
+
+@media screen and ( max-width: 48rem ) {
+    :root {
+        --mheight: auto;
+    }
+    .column {
+        grid-template-columns: 1fr;
+    }
+    .subtitle {
+        margin: 0;
+    }
+}
